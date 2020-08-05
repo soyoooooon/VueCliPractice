@@ -1,4 +1,5 @@
 <template>
+<section id="body">
  <div class="fullpage-container">
                 <div class="button-group">
                     <button type="button" :class="{active:index ==0}" @click="moveTo(0)">first page</button>
@@ -43,18 +44,6 @@
                             <li>text</li>
                             <li>text</li>
                             <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
                         </ul>
                     </div>
                     <div class="page-3 page">
@@ -65,16 +54,28 @@
                         <p class="part-3" v-animate="{value: 'bounceInDown', delay: 600}">vue-fullpage</p>
                         <p class="part-3" v-animate="{value: 'zoomInDown', delay: 900}">vue-fullpage</p>
                     </div>
+                    
                     </div>
-                </div>
-        
+                 </div>
+            <test></test>
+            </section>
+            
 </template>
 
 <script>
+import test from "./components/test.vue";
+
+
 export default {
 
-name:"app",
+name:"app", 
+    
+    components:{
+            test
+        },
+
     data() {
+           
             var that = this;
             return {
                 index: 0,
@@ -91,7 +92,8 @@ name:"app",
                         that.index = current;
                         console.log('after', current)
                     }
-                }
+                },
+                
             };
         },
        methods: {
@@ -109,14 +111,19 @@ name:"app",
                 this.index = index
             },
            
-        }
+        },
+       
     }
     
 </script>
 <style scoped>
    body {
         margin: 0;
-        overflow: hidden;
+      
+    }
+    #body{
+        display:flex;
+        flex-direction: column;
     }
 
     .fullpage-container {
